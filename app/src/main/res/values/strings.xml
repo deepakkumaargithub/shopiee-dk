@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Shoppie</string>
+    <string name="i_already_have_an_account">I already have an account</string>
+    <string name="let_s_get_started">Let\'s get started</string>
+    <string name="find_products_near_by_your_nlocation">Find products near by your\nlocation</string>
+    <string name="shoppie">Shoppie</string>
 </resources>
