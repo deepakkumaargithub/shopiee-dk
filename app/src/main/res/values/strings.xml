@@ -4,4 +4,10 @@
     <string name="let_s_get_started">Let\'s get started</string>
     <string name="find_products_near_by_your_nlocation">Find products near by your\nlocation</string>
     <string name="shoppie">Shoppie</string>
+    <string name="login">Login</string>
+    <string name="good_to_see_you_back">Good to see you back!</string>
+    <string name="email_phone_number">Email/Phone Number</string>
+    <string name="password">Password</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="sign_in">Sign In</string>
 </resources>
