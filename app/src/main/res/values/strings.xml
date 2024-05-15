@@ -10,4 +10,8 @@
     <string name="password">Password</string>
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="sign_in">Sign In</string>
+    <string name="create_n_account">Create\n Account</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="create">Create</string>
 </resources>
