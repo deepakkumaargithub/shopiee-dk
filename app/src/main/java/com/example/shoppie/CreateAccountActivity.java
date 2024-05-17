@@ -45,7 +45,13 @@ public class CreateAccountActivity extends AppCompatActivity {
                 String phoneNo = createPhoneNo.getText().toString();
                 String password = createPassword.getText().toString();
 
-                checkPhoneNumberAndCreateAccount(email, phoneNo, password);
+                //checking user details- email,phoneNo,password cannot be empty.
+                if( validateCreateAccountDetails(email,phoneNo,password)){
+                    checkPhoneNumberAndCreateAccount(email, phoneNo, password);
+                }
+                else {
+                    Toast.makeText(CreateAccountActivity.this, "Enter correct user details.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -56,6 +62,23 @@ public class CreateAccountActivity extends AppCompatActivity {
                 startActivity(go_to_splashScreen);
             }
         });
+    }
+
+    public Boolean validateCreateAccountDetails(String email, String phoneNo, String password){
+
+        if(email.isEmpty()) {
+            createEmail.setError("Email cannot be empty");
+            return false;
+        }
+        else if(phoneNo.isEmpty()){
+            createPhoneNo.setError("PhoneNo cannot be empty");
+            return false;
+        }
+        else if(password.isEmpty()){
+            createPassword.setError("Password cannot be empty");
+            return false;
+        }
+        else return true;  // if all okay.
     }
 
     private void checkPhoneNumberAndCreateAccount(final String email, final String phoneNo, final String password) {
