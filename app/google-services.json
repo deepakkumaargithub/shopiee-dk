@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "469734050705",
-    "project_id": "shoppie-f9814",
-    "storage_bucket": "shoppie-f9814.appspot.com"
+    "project_number": "452438793177",
+    "project_id": "shoppie-a1b51",
+    "storage_bucket": "shoppie-a1b51.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:469734050705:android:19c17c929ad025587c6830",
+        "mobilesdk_app_id": "1:452438793177:android:92d16aac37fe326608d7c8",
         "android_client_info": {
           "package_name": "com.example.shoppie"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDwmuYQcF5bm2i_0b41h9qzfsrhE2oCbJ0"
+          "current_key": "AIzaSyCoqvZYE6LsOfXzRU_4ehxjl_vhVx731vg"
         }
       ],
       "services": {
