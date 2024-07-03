@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.shoppie.View.HomePageActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,25 +62,29 @@ public class LoginActivity extends AppCompatActivity {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d(TAG,"check user exists");
                 if (snapshot.exists()) {
+                    Log.d(TAG,"user exists");
                     for (DataSnapshot userSnapshot : snapshot.getChildren()) {
                         String passwordFromDB = userSnapshot.child("password").getValue(String.class);
                         if (password.equals(passwordFromDB)) {
                             // Passwords match, authentication successful
+                            Log.d(TAG," Passwords match, authentication successful");
                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                             startActivity(intent);
-                            finish(); // Optional: Close LoginActivity after successful login
-
+                            finish(); // Close LoginActivity after successful login
                             return;
                         } else {
                             // Passwords do not match
+                            Log.d(TAG," Password do not match");
                             Toast.makeText(LoginActivity.this, "Invalid Password", Toast.LENGTH_SHORT).show();
                             return;
                         }
                     }
                 } else {
                     // User does not exist
+                    Log.d(TAG," User does not exist");
                     Toast.makeText(LoginActivity.this, "User does not exist", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -93,5 +98,3 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 }
-
-

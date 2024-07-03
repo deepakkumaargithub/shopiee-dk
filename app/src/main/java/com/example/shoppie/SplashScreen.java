@@ -13,30 +13,38 @@ public class SplashScreen extends AppCompatActivity {
 
     Button button;
     ImageView img;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
-        button= findViewById(R.id.get_started_button);
+
+        button = findViewById(R.id.get_started_button);
         button.setOnClickListener(new View.OnClickListener() {
-                                      @Override
-                                      public void onClick(View v) {
-                                          openCreateAccountActivity();
-                                      }
-
-            private void openCreateAccountActivity() {
-                Intent intent = new Intent(SplashScreen.this, CreateAccountActivity.class);
-                startActivity(intent);
+            @Override
+            public void onClick(View v) {
+                openCreateAccountActivity();
             }
-
         });
 
-
         img = findViewById(R.id.go_to_login_screen);
-        img.setOnClickListener(v -> openNewActivity());
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLoginActivity();
+            }
+        });
     }
-        private void openNewActivity() {
-            Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
-            startActivity(intent);
-        }
+
+    private void openCreateAccountActivity() {
+        Intent intent = new Intent(SplashScreen.this, CreateAccountActivity.class);
+        startActivity(intent);
+        finish(); // Finish splash screen activity to prevent returning to it
+    }
+
+    private void openLoginActivity() {
+        Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
+        startActivity(intent);
+        finish(); // Finish splash screen activity to prevent returning to it
+    }
 }
