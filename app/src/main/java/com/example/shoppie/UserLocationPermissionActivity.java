@@ -13,13 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
+
+
 
 public class UserLocationPermissionActivity extends AppCompatActivity {
 
@@ -94,7 +89,7 @@ public class UserLocationPermissionActivity extends AppCompatActivity {
                 // Permission denied, show a toast or handle accordingly
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_LONG).show();
             }
-            return;
+
             // Other cases for other permissions your app might request
         }
     }
