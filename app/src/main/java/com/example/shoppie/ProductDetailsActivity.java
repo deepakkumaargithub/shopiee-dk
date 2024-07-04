@@ -27,6 +27,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
+
         productImagesViewPager = findViewById(R.id.product_images_viewPager);
         viewpagerIndicator = findViewById(R.id.view_pager_indicator);
 
@@ -41,6 +42,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 
         viewpagerIndicator.setupWithViewPager(productImagesViewPager,true);
+
+
+
+
+
 
     }
 }
