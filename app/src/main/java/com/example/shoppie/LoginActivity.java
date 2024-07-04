@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Passwords match, authentication successful
                             Log.d(TAG," Passwords match, authentication successful");
                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, UserLocationPermissionActivity.class);
                             startActivity(intent);
                             finish(); // Close LoginActivity after successful login
                             return;
