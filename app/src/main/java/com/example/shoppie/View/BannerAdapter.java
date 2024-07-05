@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.shoppie.R;
 import com.example.shoppie.ModelClass.Banner;
+import com.example.shoppie.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
