@@ -16,4 +16,15 @@
     <string name="create">Create</string>
     <string name="done">Done</string>
     <string name="cancle">Cancel</string>
+    <string name="username">username</string>
+    <string name="banner">banner</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="hello">Hello</string>
+    <string name="Lorem_ispum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas hendrerit luctus libero ac vulputate.</string>
+    <string name="categories">Categories</string>
+    <string name="see_all">See All</string>
+    <string name="new_items">New Items</string>
+    <string name="homepage_image">Homepage Image</string>
+    <string name="announcement">Announcement</string>
+    <string name="search">Search</string>
 </resources>
