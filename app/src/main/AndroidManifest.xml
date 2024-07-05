@@ -31,11 +31,18 @@
         <activity
             android:name=".UserLocationPermissionActivity"
             android:exported="false" />
+
+
         <activity
-            android:name=".View.HomePageActivity"
-            android:exported="true" >
+            android:name=".CategoryActivity"
+            android:exported="true">
 
         </activity>
+        <activity
+            android:name=".View.HomePageActivity"
+            android:exported="false" />
+
+
 
         <activity
             android:name=".CreateAccountActivity"
