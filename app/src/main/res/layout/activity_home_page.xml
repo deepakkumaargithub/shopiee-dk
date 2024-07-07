@@ -157,17 +157,16 @@
                 android:text="@string/see_all"
                 android:textSize="12sp"
                 android:textColor="@color/black"
-
                 android:fontFamily="@font/raleway"
                 app:layout_constraintEnd_toStartOf="@id/see_all_categories"
                 app:layout_constraintTop_toBottomOf="@id/home_image"
                 android:paddingTop="16dp"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="0dp"/>
 
             <ImageView
                 android:id="@+id/see_all_categories"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/arrow_button_right"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_image"
@@ -210,12 +209,12 @@
                 app:layout_constraintEnd_toStartOf="@id/see_all_new_items"
                 app:layout_constraintTop_toBottomOf="@id/categoryName"
                 android:paddingTop="16dp"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="0dp"/>
 
             <ImageView
                 android:id="@+id/see_all_new_items"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/arrow_button_right"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/categoryName"
