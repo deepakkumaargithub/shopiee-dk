@@ -5,4 +5,6 @@
     <color name="primary_color">#00B2FE</color>
     <color name="dark_grey">#BFBFBF</color>
     <color name="light_grey">#F8F8F8</color>
+
+    <color name="button_pressed">#FF3700B3</color>
 </resources>
