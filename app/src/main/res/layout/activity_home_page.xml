@@ -18,16 +18,16 @@
             <!-- Profile Image -->
             <ImageView
                 android:id="@+id/profileImage"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/dark_grey"
-                android:clickable="true"
+                android:backgroundTint="@color/light_grey"
+                android:backgroundTintMode="multiply"
                 android:elevation="4dp"
-                android:focusable="true"
+                android:src="@drawable/profile_icon"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/search_bar" />
 
             <!-- Search Bar -->
             <EditText
@@ -37,10 +37,12 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/rounded_corner"
                 android:backgroundTint="@color/light_grey"
+                android:backgroundTintMode="multiply"
                 android:drawableStart="@drawable/search_icon"
                 android:drawablePadding="8dp"
                 android:hint="@string/search"
-                android:paddingStart="16dp"
+                android:layout_marginStart="10dp"
+                android:paddingStart="15dp"
                 android:paddingEnd="8dp"
                 app:layout_constraintStart_toEndOf="@id/profileImage"
                 app:layout_constraintEnd_toStartOf="@id/notificationIcon"
@@ -53,7 +55,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/light_grey"
+                android:backgroundTintMode="multiply"
                 android:elevation="4dp"
                 android:src="@drawable/notification_icon"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -67,10 +70,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/hello"
                 android:textColor="@color/black"
-                android:textSize="28sp"
-                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textStyle="normal"
                 android:fontFamily="@font/raleway_semibold"
-                android:paddingTop="16dp"
+                android:paddingTop="14dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profileImage" />
 
@@ -81,11 +84,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/username"
                 android:textColor="@color/black"
-
-                android:textSize="28sp"
-                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textStyle="normal"
                 android:fontFamily="@font/raleway_semibold"
-                android:paddingTop="16dp"
+                android:paddingTop="14dp"
                 app:layout_constraintStart_toEndOf="@id/greetingText"
                 app:layout_constraintTop_toBottomOf="@id/profileImage" />
 
@@ -94,12 +96,14 @@
                 android:id="@+id/announcement_section"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_corner"
                 android:backgroundTint="@color/dark_grey"
                 android:backgroundTintMode="multiply"
                 android:orientation="vertical"
-                android:padding="16dp"
+                android:padding="7dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/greetingText">
@@ -115,7 +119,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="6dp"
                     android:fontFamily="@font/raleway_semibold"
                     android:text="@string/Lorem_ispum"
                     android:textSize="14sp"
@@ -127,9 +131,8 @@
                 android:id="@+id/home_image"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
                 android:contentDescription="@string/homepage_image"
                 app:layout_constraintTop_toBottomOf="@id/announcement_section"
                 app:layout_constraintStart_toStartOf="parent"
@@ -144,12 +147,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-
                 android:fontFamily="@font/raleway"
-                android:paddingStart="8dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="2dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_image"
-                android:paddingTop="16dp"/>
+                android:paddingTop="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -160,18 +163,18 @@
                 android:fontFamily="@font/raleway"
                 app:layout_constraintEnd_toStartOf="@id/see_all_categories"
                 app:layout_constraintTop_toBottomOf="@id/home_image"
-                android:paddingTop="16dp"
+                android:paddingTop="5dp"
                 android:layout_marginEnd="0dp"/>
 
             <ImageView
                 android:id="@+id/see_all_categories"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/arrow_button_right"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_image"
-                android:paddingTop="16dp"
-                android:layout_marginEnd="8dp"/>
+                android:paddingTop="5dp"
+                android:layout_marginEnd="5dp"/>
 
             <!-- Categories RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
@@ -191,12 +194,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-
                 android:fontFamily="@font/raleway"
-                android:paddingStart="8dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="2dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/categoryName"
-                android:paddingTop="16dp"/>
+                android:paddingTop="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -204,22 +207,21 @@
                 android:text="@string/see_all"
                 android:textSize="12sp"
                 android:textColor="@color/black"
-
                 android:fontFamily="@font/raleway"
                 app:layout_constraintEnd_toStartOf="@id/see_all_new_items"
                 app:layout_constraintTop_toBottomOf="@id/categoryName"
-                android:paddingTop="16dp"
+                android:paddingTop="5dp"
                 android:layout_marginEnd="0dp"/>
 
             <ImageView
                 android:id="@+id/see_all_new_items"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/arrow_button_right"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/categoryName"
-                android:paddingTop="16dp"
-                android:layout_marginEnd="8dp"/>
+                android:paddingTop="5dp"
+                android:layout_marginEnd="5dp"/>
 
             <!-- New Items RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
@@ -232,4 +234,23 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+<RelativeLayout
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/nav_bar"
+        app:menu="@menu/bottom_nav_item"
+        app:itemTextColor="@color/primary_color"
+        app:itemIconTint="@color/primary_color"
+        android:background="@drawable/bottom_app_bar_shape"
+        android:backgroundTint="@drawable/bottom_app_bar_selector"
+        />
+
+
+</RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

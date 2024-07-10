@@ -118,7 +118,7 @@
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="@font/raleway_semibold"
-        android:text="@string/cancle"
+        android:text="@string/cancel"
         android:textAlignment="center"
         android:textColor="@color/black"
         app:iconTint="#CDDC39"
