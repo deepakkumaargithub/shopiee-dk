@@ -21,6 +21,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private ViewPager productImagesViewPager;
     private TabLayout viewpagerIndicator;
 
+    private ViewPager productDetailsViewPager;
+    private TabLayout productDetailsTabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -31,6 +34,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productImagesViewPager = findViewById(R.id.product_images_viewPager);
         viewpagerIndicator = findViewById(R.id.view_pager_indicator);
 
+        productDetailsViewPager = findViewById(R.id.product_details_view_pager);
+        productDetailsTabLayout = findViewById(R.id.product_details_tab_layout);
+
         List<Integer> productImages = new ArrayList<>();
         productImages.add(R.drawable.loc_logo);
         productImages.add(R.drawable.loc_logo);
@@ -40,14 +46,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
         ProductImageAdapter productImageAdapter = new ProductImageAdapter(productImages);
         productImagesViewPager.setAdapter(productImageAdapter);
 
-
         viewpagerIndicator.setupWithViewPager(productImagesViewPager,true);
 
 
-
-
-
-
+       // productDetailsViewPager.setAdapter(new ProductDetailsAdapter(getSupportFragmentManager(), productDetailsTabLayout));
 
     }
 }
