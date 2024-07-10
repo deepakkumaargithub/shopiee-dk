@@ -25,8 +25,8 @@ public class ProductDetailsAdapter extends FragmentPagerAdapter {
                 ProductSpecificationFragment psf= new ProductSpecificationFragment();
                 return psf;
             case 2:
-                ProductDescriptionFragment pdf2 = new ProductDescriptionFragment();
-                return pdf2;
+                ProductOtherDetailsFragment odf = new ProductOtherDetailsFragment();
+                return odf;
             default:
                 return null;
         }
@@ -34,6 +34,6 @@ public class ProductDetailsAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return totalTabs;
     }
 }
