@@ -73,13 +73,12 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, UserLocationPermissionActivity.class);
                             startActivity(intent);
                             finish(); // Close LoginActivity after successful login
-                            return;
                         } else {
                             // Passwords do not match
                             Log.d(TAG," Password do not match");
                             Toast.makeText(LoginActivity.this, "Invalid Password", Toast.LENGTH_SHORT).show();
-                            return;
                         }
+                        return;
                     }
                 } else {
                     // User does not exist
