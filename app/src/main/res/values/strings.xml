@@ -27,4 +27,5 @@
     <string name="homepage_image">Homepage Image</string>
     <string name="announcement">Announcement</string>
     <string name="search">Search</string>
+    <string name="product_title_name">Product Title Name</string>
 </resources>

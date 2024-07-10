@@ -33,6 +33,14 @@
             android:exported="false" />
         <activity
             android:name=".ProductDetailsActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
             android:exported="false" />
         <activity
             android:name=".UserLocationPermissionActivity"
@@ -40,12 +48,9 @@
 
 
 
-
-
-
         <activity
             android:name=".CategoryActivity"
-            android:exported="true">
+            android:exported="false">
 
         </activity>
         <activity
@@ -63,12 +68,6 @@
         <activity
             android:name=".SplashScreen"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
     </application>
 
