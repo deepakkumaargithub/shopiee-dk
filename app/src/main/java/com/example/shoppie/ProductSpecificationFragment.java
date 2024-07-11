@@ -38,11 +38,11 @@ public class ProductSpecificationFragment extends Fragment {
 
         List<ProductSpecificationModel> productSpecificationModelList = new ArrayList<>();
 
-        productSpecificationModelList.add(new ProductSpecificationModel("RAM","4GB"));
-        productSpecificationModelList.add(new ProductSpecificationModel("RAM","4GB"));
-        productSpecificationModelList.add(new ProductSpecificationModel("RAM","4GB"));
-        productSpecificationModelList.add(new ProductSpecificationModel("RAM","4GB"));
-        productSpecificationModelList.add(new ProductSpecificationModel("RAM","4GB"));
+        productSpecificationModelList.add(new ProductSpecificationModel("Brand","Whirlpool"));
+        productSpecificationModelList.add(new ProductSpecificationModel("Model","72681"));
+        productSpecificationModelList.add(new ProductSpecificationModel("Capacity","184 litres"));
+        productSpecificationModelList.add(new ProductSpecificationModel("Annual Energy Consumption","190 Kilowatt Hours Per Year"));
+        productSpecificationModelList.add(new ProductSpecificationModel("Refrigerator Fresh Food Capacity","169.2 litres"));
         productSpecificationModelList.add(new ProductSpecificationModel("RAM","4GB"));
         productSpecificationModelList.add(new ProductSpecificationModel("RAM","4GB"));
         productSpecificationModelList.add(new ProductSpecificationModel("RAM","4GB"));
