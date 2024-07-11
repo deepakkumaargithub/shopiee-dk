@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductDescriptionFragment">
+
+    <TextView
+        android:id="@+id/tv_product_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="
+Single door refrigerator with Insulated Capillary Technology\n
+Capacity: 184 liters for families with 2-3 members\n
+Energy Rating - 2 Star energy efficiency\n
+1 year product warranty and 10 year compressor\n
+Insulated Capillary Technology-In Insulated Capillary Technology, the capillary which carries the refrigerant from the compressor to the freezer is surrounded by super cold gas leading to benefits such better compressor efficiency, faster cooling and 9 Hours* cooling retention in the refrigerator.\n
+Special Feature - Stabilizer free operations even in high voltage fluctuations between (130V - 300V)\n
+Brand Specific Features - Upto 9 hours of cooling retention during power cuts, Easy Manual Defrosting, Jumbo Storage Up To 3, 2L Bottle Storage, Insulated Capillary Technology, Auto Connect To Home Inverter, Large Vegetable Crisper, Honey Comb Lock In Technology and Quick Chill Zone\n
+Storage and Interior Description-Fresh food capacity : 169.2 Ltr | Freezer capacity : 14.3 Ltr | Total no of drawers : 4, shelves : 2 | Shelf Type : Toughened glass shelves | Anti bacterial gasket\n
+Item Dimensions and Weight : 65.1 x 53.5 x 118.8 Centimeters | Weight : 33.4Kg\n
+In Box : 1 Refrigerator,â€Ž1 Egg Tray, 1 Ice Tray, 1 Instruction Manual, 1 Key }"    />
+
+</FrameLayout>

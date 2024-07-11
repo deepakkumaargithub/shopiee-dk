@@ -8,4 +8,8 @@
     <color name="light_red">#D97474</color>
 
     <color name="button_pressed">#FF3700B3</color>
+
+    <color name="star_color_normal">#CCCCCC</color> <!-- Color for unfilled stars -->
+    <color name="star_color_activated">#ECA61B</color> <!-- Color for filled stars -->
+
 </resources>

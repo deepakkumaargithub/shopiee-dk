@@ -27,4 +27,7 @@
     <string name="homepage_image">Homepage Image</string>
     <string name="announcement">Announcement</string>
     <string name="search">Search</string>
+    <string name="product_title_name">Product Title Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
