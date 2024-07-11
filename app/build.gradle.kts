@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
     id("com.google.gms.google-services")
-
 }
 
 android {
@@ -27,10 +26,12 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     buildFeatures {
         viewBinding = true
     }
@@ -44,11 +45,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    // firebase
-    implementation (libs.firebase.database)
 
+    // Firebase
+    implementation(libs.firebase.database)
+
+    // Play Services Location
     implementation(libs.play.services.location)
-// RecyclerView
+
+    // RecyclerView
     implementation(libs.recyclerview)
 
     // Picasso
@@ -57,16 +61,11 @@ dependencies {
     // ViewPager
     implementation(libs.viewpager)
 
-
     // Others
-    implementation (libs.appcompatV131)
-    implementation (libs.materialV140)
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
 
-    // for new items
-    implementation (libs.glide)
-    annotationProcessor (libs.compiler)
-
-
-
-
+    // New items
+    implementation(libs.appcompatV131)
+    implementation(libs.materialV140)
 }
