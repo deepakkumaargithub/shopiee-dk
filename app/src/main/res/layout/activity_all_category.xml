@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Search Bar -->
+    <EditText
+        android:id="@+id/search_bar_allCategory"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/light_grey"
+        android:backgroundTintMode="multiply"
+        android:drawableStart="@drawable/search_icon"
+        android:drawablePadding="8dp"
+        android:hint="@string/search"
+        android:layout_marginStart="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="8dp"/>
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_bar_allCategory"
+        android:padding="8dp"
+        android:text="Showing 75 results for 'electronics'" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_allCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/result_text"
+        android:padding="16dp"
+        android:clipToPadding="false"/>
+
+</RelativeLayout>

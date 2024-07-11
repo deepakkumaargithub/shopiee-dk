@@ -5,6 +5,9 @@
     <!-- permission for user current location -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- permission for Glide Image Loading -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -23,6 +26,13 @@
         <activity android:name=".flashSale_MainActivity"
             android:exported="true">
 
+
+
+        </activity>
+
+        <activity android:name=".AllCategoryActivity"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -39,6 +49,10 @@
         <activity
             android:name=".ProductDetailsActivity"
             android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
 
 
         </activity>

@@ -37,10 +37,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDetailsTabLayout = findViewById(R.id.product_details_tab_layout);
 
         List<Integer> productImages = new ArrayList<>();
-        productImages.add(R.drawable.loc_logo);
-        productImages.add(R.drawable.loc_logo);
-        productImages.add(R.drawable.loc_logo);
-        productImages.add(R.drawable.loc_logo);
+        productImages.add(R.drawable.ac1);
+        productImages.add(R.drawable.laptop2);
+        productImages.add(R.drawable.fridge1);
+        productImages.add(R.drawable.speaker1);
 
         ProductImageAdapter productImageAdapter = new ProductImageAdapter(productImages);
         productImagesViewPager.setAdapter(productImageAdapter);
