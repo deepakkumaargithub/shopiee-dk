@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
     id("com.google.gms.google-services")
-
 }
 
 android {
@@ -27,10 +26,12 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     buildFeatures {
         viewBinding = true
     }
@@ -44,11 +45,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    // firebase
-    implementation (libs.firebase.database)
 
+    // Firebase
+    implementation(libs.firebase.database)
+
+    // Play Services Location
     implementation(libs.play.services.location)
-// RecyclerView
+
+    // RecyclerView
     implementation(libs.recyclerview)
 
     // Picasso
@@ -57,12 +61,13 @@ dependencies {
     // ViewPager
     implementation(libs.viewpager)
 
-
     // Others
-    implementation (libs.appcompatV131)
-    implementation (libs.materialV140)
-    //dependencies for the flash sale
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation(libs.appcompatV131)
+    implementation(libs.materialV140)
 
+    // Glide for Flash Sale
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+    // Or if you are using Kotlin KAPT for annotation processing
+    // kapt(libs.glide.compiler)
 }
