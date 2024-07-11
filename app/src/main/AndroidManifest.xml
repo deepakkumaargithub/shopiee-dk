@@ -19,6 +19,12 @@
         <activity
             android:name=".View.UserProfileActivity"
             android:exported="false" />
+
+        <activity android:name=".flashSale_MainActivity"
+            android:exported="false">
+
+
+        </activity>
         <activity
             android:name=".View.CartActivity"
             android:exported="false" />
@@ -53,6 +59,7 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".SplashScreen"
             android:exported="true">
