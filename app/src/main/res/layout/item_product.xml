@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/product_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"/>
+
+    <TextView
+        android:id="@+id/product_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textColor="@color/black"
+        android:text="Product Title"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="₹999"
+        android:fontFamily="@font/raleway"
+        android:textSize="17sp"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/add_to_cart_button"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:fontFamily="@font/raleway"
+        android:textColor="@color/primary_color"
+        android:background="@drawable/rounded_background"
+        android:text="Add to Cart" />
+</LinearLayout>
