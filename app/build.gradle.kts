@@ -61,7 +61,12 @@ dependencies {
     // Others
     implementation (libs.appcompatV131)
     implementation (libs.materialV140)
+
     // for new items
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation (libs.glide)
+    annotationProcessor (libs.compiler)
+
+
+
+
 }
