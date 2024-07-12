@@ -35,7 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Product Title Name"
+        android:text="@string/product_title_name"
+        android:fontFamily="@font/raleway_semibold"
         android:textSize="20sp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +47,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Rs 3999/-"
-        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:text="₹3999/-"
+        android:fontFamily="@font/raleway"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_title" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        android:text="₹4599"
+        android:fontFamily="@font/raleway_semibold"
+        app:layout_constraintBottom_toBottomOf="@+id/product_price"
+        app:layout_constraintStart_toEndOf="@+id/product_price" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#80000000"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_price">
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            android:fontFamily="@font/raleway"
+            android:layout_marginStart="16dp"
+
+            android:textColor="@color/black"
+            android:text="Distance from you" />
+
+        <TextView
+            android:id="@+id/km_txt"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="#E5EBFC"
+            android:textSize="15sp"
+            android:fontFamily="@font/raleway_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 km" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
