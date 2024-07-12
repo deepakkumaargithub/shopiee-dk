@@ -61,15 +61,11 @@ dependencies {
     // ViewPager
     implementation(libs.viewpager)
 
-    // Others
-
-
+    // Glide
     implementation(libs.glide)
-    annotationProcessor(libs.compiler)
+    annotationProcessor(libs.glide.compiler)
 
-    
+    // Additional Libraries
     implementation(libs.appcompatV131)
     implementation(libs.materialV140)
 }
-
-
