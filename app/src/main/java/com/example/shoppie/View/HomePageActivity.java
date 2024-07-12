@@ -25,6 +25,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+//added for new items
+import java.util.ArrayList;
+import com.bumptech.glide.Glide;
+import android.widget.Toast;
+
+
 
 /**
  * HomePageActivity is the main activity for the home page of the Shoppie application.
@@ -46,7 +52,10 @@ public class HomePageActivity extends AppCompatActivity {
     // ViewModel and Firebase Database reference
     private HomeViewModel homeViewModel;
     private DatabaseReference databaseReference;
-
+    //to add  the new item
+    private List<ImageView> imageViews;
+    private List<TextView> descriptionTexts;
+    private List<TextView> priceTexts;
     /**
      * Called when the activity is first created.
      * @param savedInstanceState If the activity is being re-initialized after previously being shut down, this contains the most recently supplied data.
@@ -63,6 +72,28 @@ public class HomePageActivity extends AppCompatActivity {
         profileImage = findViewById(R.id.profileImage);
         notificationIcon = findViewById(R.id.notificationIcon);
         homeImage = findViewById(R.id.home_image);
+        //for the new item
+        imageViews = new ArrayList<>();
+        descriptionTexts = new ArrayList<>();
+        priceTexts = new ArrayList<>();
+
+        // Initialize image views
+        imageViews.add(findViewById(R.id.new_item_image1));
+        imageViews.add(findViewById(R.id.new_item_image2));
+        imageViews.add(findViewById(R.id.new_item_image3));
+        imageViews.add(findViewById(R.id.new_item_image4));
+
+        // Initialize description texts
+        descriptionTexts.add(findViewById(R.id.new_item_description1));
+        descriptionTexts.add(findViewById(R.id.new_item_description2));
+        descriptionTexts.add(findViewById(R.id.new_item_description3));
+        descriptionTexts.add(findViewById(R.id.new_item_description4));
+
+        // Initialize price texts
+        priceTexts.add(findViewById(R.id.new_item_price1));
+        priceTexts.add(findViewById(R.id.new_item_price2));
+        priceTexts.add(findViewById(R.id.new_item_price3));
+        priceTexts.add(findViewById(R.id.new_item_price4));
 
         // Initialize Firebase Database reference
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -79,6 +110,8 @@ public class HomePageActivity extends AppCompatActivity {
         // Handle click events for the notification icon
         setupNotificationIconClick();
 
+        //fetch image, discription and price form the firebase
+        fetchNewItemsData();
         // Set up BottomNavigationView item selection listener
         setupBottomNavigationView();
     }
@@ -186,7 +219,35 @@ public class HomePageActivity extends AppCompatActivity {
             // Implement notification click logic here
         });
     }
+    /**
+     * fetching the data from the firebase node NewItems
+     */
+    private void fetchNewItemsData() {
+        FirebaseDatabase.getInstance("https://shoppie-a1b51-default-rtdb.firebaseio.com/")
+                .getReference("NewItems")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int index = 0;
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            if (index >= imageViews.size()) break;
+                            String imageUrl = dataSnapshot.child("ImageUrl").getValue(String.class);
+                            String description = dataSnapshot.child("description").getValue(String.class);
+                            Integer price = dataSnapshot.child("ItemPrice").getValue(Integer.class);
 
+                            Glide.with(HomePageActivity.this).load(imageUrl).into(imageViews.get(index));
+                            descriptionTexts.get(index).setText(description);
+                            priceTexts.get(index).setText("$ " + price);
+                            index++;
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(HomePageActivity.this, "Failed to load data", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
     /**
      * Set up item selection listener for BottomNavigationView.
      */
