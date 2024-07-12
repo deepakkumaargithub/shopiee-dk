@@ -24,13 +24,16 @@
             android:exported="false" />
 
         <activity android:name=".flashSale_MainActivity"
+
             android:exported="false">
+
 
 
 
         </activity>
 
         <activity android:name=".AllCategoryActivity"
+
             android:exported="false">
 
 
@@ -50,9 +53,11 @@
 
         </activity>
 
+
         <activity
             android:name=".UserLocationPermissionActivity"
             android:exported="false" />
+
 
         <activity
             android:name=".CategoryActivity"
@@ -62,9 +67,10 @@
         <activity
             android:name=".View.HomePageActivity"
 
-            android:exported="false" >
 
-        </activity>
+            android:exported="false" />
+
+
 
         <activity
             android:name=".CreateAccountActivity"
@@ -83,6 +89,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
 
 
         </activity>

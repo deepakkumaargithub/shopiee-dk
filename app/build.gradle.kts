@@ -63,11 +63,13 @@ dependencies {
 
     // Others
 
+
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
 
-    // New items
+    
     implementation(libs.appcompatV131)
     implementation(libs.materialV140)
 }
+
 
