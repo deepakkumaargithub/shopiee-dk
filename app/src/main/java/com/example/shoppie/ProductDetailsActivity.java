@@ -30,6 +30,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
+
         productImagesViewPager = findViewById(R.id.product_images_viewPager);
         viewpagerIndicator = findViewById(R.id.view_pager_indicator);
 
@@ -48,6 +49,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         viewpagerIndicator.setupWithViewPager(productImagesViewPager,true);
 
 
+
         productDetailsViewPager.setAdapter(new ProductDetailsAdapter(getSupportFragmentManager(), productDetailsTabLayout.getTabCount()));
         productDetailsViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(productDetailsTabLayout));
         productDetailsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -55,6 +57,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 productDetailsViewPager.setCurrentItem(tab.getPosition());
             }
+
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {

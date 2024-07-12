@@ -62,12 +62,14 @@ dependencies {
     implementation(libs.viewpager)
 
     // Others
+
+
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
+
+    
     implementation(libs.appcompatV131)
     implementation(libs.materialV140)
-
-    // Glide for Flash Sale
-    implementation(libs.glide)
-    annotationProcessor(libs.glide.compiler)
-    // Or if you are using Kotlin KAPT for annotation processing
-    // kapt(libs.glide.compiler)
 }
+
+

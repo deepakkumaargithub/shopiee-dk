@@ -223,34 +223,203 @@
                 android:paddingTop="5dp"
                 android:layout_marginEnd="5dp"/>
 
-            <!-- New Items RecyclerView -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/new_items"
+            <!-- New Items RecyclerView   -->
+            <!-- but adding  horizontal scroll view   -->
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/new_items_section" />
+                app:layout_constraintTop_toBottomOf="@id/new_items_section">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!--    new item image1        -->
+                    <LinearLayout
+                        android:layout_width="370dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5dp">
 
+                        <ImageView
+                            android:id="@+id/new_item_image1"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            />
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            >
+                        <TextView
+                            android:id="@+id/new_item_description1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:paddingRight="10dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:textAlignment="textStart"/>
+                         </ScrollView>
+
+                        <TextView
+                            android:id="@+id/new_item_price1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                    </LinearLayout>
+                   <!--      new item image 2              -->
+                    <LinearLayout
+                        android:layout_width="370dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="1dp">
+                        <ImageView
+                            android:id="@+id/new_item_image2"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                          />
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            >
+                            <TextView
+                                android:id="@+id/new_item_description2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="10dp"
+                                android:paddingRight="10dp"
+                                android:textSize="16sp"
+                                android:textColor="@color/black"
+                                android:textAlignment="textStart"/>
+                        </ScrollView>
+
+                        <TextView
+                            android:id="@+id/new_item_price2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                    </LinearLayout>
+                    <!--      new item image 3              -->
+                    <LinearLayout
+                        android:layout_width="370dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="1dp">
+                        <ImageView
+                            android:id="@+id/new_item_image3"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            />
+
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            >
+                            <TextView
+                                android:id="@+id/new_item_description3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="10dp"
+                                android:paddingRight="10dp"
+                                android:textSize="16sp"
+                                android:textColor="@color/black"
+                                android:textAlignment="textStart"/>
+                        </ScrollView>
+
+                        <TextView
+                            android:id="@+id/new_item_price3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                    </LinearLayout>
+                    <!--      new item image 4             -->
+                    <LinearLayout
+                        android:layout_width="370dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="1dp">
+                        <ImageView
+                            android:id="@+id/new_item_image4"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            />
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            >
+                            <TextView
+                                android:id="@+id/new_item_description4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="10dp"
+                                android:paddingRight="10dp"
+                                android:textSize="16sp"
+                                android:textColor="@color/black"
+                                android:textAlignment="textStart"/>
+                        </ScrollView>
+
+                        <TextView
+                            android:id="@+id/new_item_price4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-<RelativeLayout
-    app:layout_constraintBottom_toBottomOf="parent"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/nav_bar"
-        app:menu="@menu/bottom_nav_item"
-        app:itemTextColor="@color/primary_color"
-        app:itemIconTint="@color/primary_color"
-        android:background="@drawable/bottom_app_bar_shape"
-        android:backgroundTint="@drawable/bottom_app_bar_selector"
-        />
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bottom_app_bar_shape"
+            android:backgroundTint="@drawable/bottom_app_bar_selector"
+            app:itemIconTint="@color/primary_color"
+            app:itemTextColor="@color/primary_color"
+            app:menu="@menu/bottom_nav_item" />
 
 
-</RelativeLayout>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
