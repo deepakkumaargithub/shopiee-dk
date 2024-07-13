@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.shoppie.ModelClass.Banner;
 import com.example.shoppie.ModelClass.Category;
 import com.example.shoppie.R;
+import com.bumptech.glide.Glide;
 import com.example.shoppie.ViewModel.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -25,10 +27,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
 //added for new items
 import java.util.ArrayList;
-import com.bumptech.glide.Glide;
-import android.widget.Toast;
 
 
 
@@ -52,10 +53,18 @@ public class HomePageActivity extends AppCompatActivity {
     // ViewModel and Firebase Database reference
     private HomeViewModel homeViewModel;
     private DatabaseReference databaseReference;
+
     //to add  the new item
     private List<ImageView> imageViews;
     private List<TextView> descriptionTexts;
     private List<TextView> priceTexts;
+
+    /*
+    for the flashSale
+     */
+    private List<ImageView> flashImageViews;
+    private List<TextView> flashDiscountTexts;
+
     /**
      * Called when the activity is first created.
      * @param savedInstanceState If the activity is being re-initialized after previously being shut down, this contains the most recently supplied data.
@@ -95,6 +104,26 @@ public class HomePageActivity extends AppCompatActivity {
         priceTexts.add(findViewById(R.id.new_item_price3));
         priceTexts.add(findViewById(R.id.new_item_price4));
 
+        /*
+        for flashsale
+         */
+        flashImageViews = new ArrayList<>();
+        flashDiscountTexts = new ArrayList<>();
+
+        flashImageViews.add(findViewById(R.id.flashsale_image1));
+        flashImageViews.add(findViewById(R.id.flashsale_image2));
+        flashImageViews.add(findViewById(R.id.flashsale_image3));
+        flashImageViews.add(findViewById(R.id.flashsale_image4));
+        flashImageViews.add(findViewById(R.id.flashsale_image5));
+        flashImageViews.add(findViewById(R.id.flashsale_image6));
+
+        flashDiscountTexts.add(findViewById(R.id.discount_text1));
+        flashDiscountTexts.add(findViewById(R.id.discount_text2));
+        flashDiscountTexts.add(findViewById(R.id.discount_text3));
+        flashDiscountTexts.add(findViewById(R.id.discount_text4));
+        flashDiscountTexts.add(findViewById(R.id.discount_text5));
+        flashDiscountTexts.add(findViewById(R.id.discount_text6));
+
         // Initialize Firebase Database reference
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -106,6 +135,9 @@ public class HomePageActivity extends AppCompatActivity {
 
         // Initialize ViewModel and set up LiveData observers
         setupViewModel();
+
+        //for fetching flashSale images and corresponding their discounts
+        fetchFlashSaleData();
 
         // Handle click events for the notification icon
         setupNotificationIconClick();
@@ -219,6 +251,7 @@ public class HomePageActivity extends AppCompatActivity {
             // Implement notification click logic here
         });
     }
+
     /**
      * fetching the data from the firebase node NewItems
      */
@@ -248,6 +281,37 @@ public class HomePageActivity extends AppCompatActivity {
                     }
                 });
     }
+
+   /*
+   set the methods for fetching images and discount form the firebase
+
+    */
+   private void fetchFlashSaleData() {
+       FirebaseDatabase.getInstance("https://shoppie-a1b51-default-rtdb.firebaseio.com/")
+               .getReference("FlashSale")
+               .addValueEventListener(new ValueEventListener() {
+                   @Override
+                   public void onDataChange(@NonNull DataSnapshot snapshot) {
+                       int index = 0;
+                       for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                           if (index >= flashImageViews.size()) break;
+                           int discount = dataSnapshot.child("Discount").getValue(Integer.class);
+                           String imageUrl = dataSnapshot.child("Imageurl").getValue(String.class);
+
+                           Glide.with(HomePageActivity.this).load(imageUrl).into(flashImageViews.get(index));
+                           flashDiscountTexts.get(index).setText(discount + " % ");
+                           index++;
+                       }
+                   }
+
+                   @Override
+                   public void onCancelled(@NonNull DatabaseError error) {
+                       Toast.makeText(HomePageActivity.this, "Failed to load data", Toast.LENGTH_SHORT).show();
+                   }
+               });
+   }
+
+
     /**
      * Set up item selection listener for BottomNavigationView.
      */

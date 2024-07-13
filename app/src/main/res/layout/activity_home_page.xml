@@ -176,6 +176,7 @@
                 android:paddingTop="5dp"
                 android:layout_marginEnd="5dp"/>
 
+
             <!-- Categories RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categoryName"
@@ -185,7 +186,183 @@
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/categories_section" />
 
-            <!-- New Items Section -->
+
+
+            <!-- Flash Sale item             -->
+
+            <TextView
+                android:id="@+id/FlashSale_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/flashsale"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="@font/raleway"
+                android:paddingStart="6dp"
+                android:paddingEnd="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categoryName"
+                android:paddingTop="5dp"/>
+
+              <!--   constratintlayout of the flashsale          -->
+
+             <androidx.constraintlayout.widget.ConstraintLayout
+                 android:id="@+id/flashsale_constraintlayout"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+
+                 app:layout_constraintTop_toBottomOf="@id/FlashSale_section">
+
+                 <ImageView
+                     android:id="@+id/flashsale_image1"
+                     android:layout_width="0dp"
+                     android:layout_height="0dp"
+                     android:layout_margin="5dp"
+                     android:background="@drawable/flashsale_rounded_background"
+                     android:scaleType="fitXY"
+                     app:layout_constraintDimensionRatio="1:1"
+                     app:layout_constraintEnd_toStartOf="@+id/flashsale_image2"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toTopOf="parent" />
+
+                 <TextView
+                     android:id="@+id/discount_text1"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/flashsale_round_background"
+                     android:padding="4dp"
+                     android:textColor="@android:color/white"
+                     android:textSize="16sp"
+                     android:textStyle="bold"
+                     app:layout_constraintEnd_toEndOf="@id/flashsale_image1"
+                     app:layout_constraintTop_toTopOf="@id/flashsale_image1" />
+
+                 <ImageView
+                     android:id="@+id/flashsale_image2"
+                     android:layout_width="0dp"
+                     android:layout_height="0dp"
+                     android:layout_margin="5dp"
+                     android:background="@drawable/flashsale_rounded_background"
+                     android:scaleType="fitXY"
+                     app:layout_constraintDimensionRatio="1:1"
+                     app:layout_constraintEnd_toStartOf="@+id/flashsale_image3"
+                     app:layout_constraintStart_toEndOf="@id/flashsale_image1"
+                     app:layout_constraintTop_toTopOf="parent" />
+
+                 <TextView
+                     android:id="@+id/discount_text2"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/flashsale_round_background"
+                     android:padding="4dp"
+                     android:textColor="@android:color/white"
+                     android:textSize="16sp"
+                     android:textStyle="bold"
+                     app:layout_constraintEnd_toEndOf="@id/flashsale_image2"
+                     app:layout_constraintTop_toTopOf="@id/flashsale_image2" />
+
+                 <ImageView
+                     android:id="@+id/flashsale_image3"
+                     android:layout_width="0dp"
+                     android:layout_height="0dp"
+                     android:layout_margin="5dp"
+                     android:background="@drawable/flashsale_rounded_background"
+                     android:scaleType="fitXY"
+                     app:layout_constraintDimensionRatio="1:1"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintStart_toEndOf="@id/flashsale_image2"
+                     app:layout_constraintTop_toTopOf="parent" />
+
+                 <TextView
+                     android:id="@+id/discount_text3"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/flashsale_round_background"
+                     android:padding="4dp"
+                     android:textColor="@android:color/white"
+                     android:textSize="16sp"
+                     android:textStyle="bold"
+                     app:layout_constraintEnd_toEndOf="@id/flashsale_image3"
+                     app:layout_constraintTop_toTopOf="@id/flashsale_image3" />
+
+                 <ImageView
+                     android:id="@+id/flashsale_image4"
+                     android:layout_width="0dp"
+                     android:layout_height="0dp"
+                     android:layout_margin="5dp"
+                     android:background="@drawable/flashsale_rounded_background"
+                     android:scaleType="fitXY"
+                     app:layout_constraintDimensionRatio="1:1"
+                     app:layout_constraintEnd_toStartOf="@+id/flashsale_image5"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toBottomOf="@id/flashsale_image1" />
+
+                 <TextView
+                     android:id="@+id/discount_text4"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/flashsale_round_background"
+                     android:padding="4dp"
+                     android:textColor="@android:color/white"
+                     android:textSize="16sp"
+                     android:textStyle="bold"
+                     app:layout_constraintEnd_toEndOf="@id/flashsale_image4"
+                     app:layout_constraintTop_toTopOf="@id/flashsale_image4" />
+
+                 <ImageView
+                     android:id="@+id/flashsale_image5"
+                     android:layout_width="0dp"
+                     android:layout_height="0dp"
+                     android:layout_margin="5dp"
+                     android:background="@drawable/flashsale_rounded_background"
+                     android:scaleType="fitXY"
+                     app:layout_constraintDimensionRatio="1:1"
+                     app:layout_constraintEnd_toStartOf="@+id/flashsale_image6"
+                     app:layout_constraintStart_toEndOf="@id/flashsale_image4"
+                     app:layout_constraintTop_toBottomOf="@id/flashsale_image2" />
+
+                 <TextView
+                     android:id="@+id/discount_text5"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/flashsale_round_background"
+                     android:padding="4dp"
+                     android:textColor="@android:color/white"
+                     android:textSize="16sp"
+                     android:textStyle="bold"
+                     app:layout_constraintEnd_toEndOf="@id/flashsale_image5"
+                     app:layout_constraintTop_toTopOf="@id/flashsale_image5" />
+
+                 <ImageView
+                     android:id="@+id/flashsale_image6"
+                     android:layout_width="0dp"
+                     android:layout_height="0dp"
+                     android:layout_margin="5dp"
+                     android:background="@drawable/flashsale_rounded_background"
+                     android:scaleType="fitXY"
+                     app:layout_constraintDimensionRatio="1:1"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintStart_toEndOf="@id/flashsale_image5"
+                     app:layout_constraintTop_toBottomOf="@id/flashsale_image3" />
+
+                 <TextView
+                     android:id="@+id/discount_text6"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/flashsale_round_background"
+                     android:padding="4dp"
+                     android:textColor="@android:color/white"
+                     android:textSize="16sp"
+                     android:textStyle="bold"
+                     app:layout_constraintEnd_toEndOf="@id/flashsale_image6"
+                     app:layout_constraintTop_toTopOf="@id/flashsale_image6" />
+
+             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <!--            new item section  -->
             <TextView
                 android:id="@+id/new_items_section"
                 android:layout_width="wrap_content"
@@ -198,7 +375,7 @@
                 android:paddingStart="6dp"
                 android:paddingEnd="2dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/categoryName"
+                app:layout_constraintTop_toBottomOf="@id/flashsale_constraintlayout"
                 android:paddingTop="5dp"/>
 
             <TextView
@@ -209,7 +386,7 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/raleway"
                 app:layout_constraintEnd_toStartOf="@id/see_all_new_items"
-                app:layout_constraintTop_toBottomOf="@id/categoryName"
+                app:layout_constraintTop_toBottomOf="@id/flashsale_constraintlayout"
                 android:paddingTop="5dp"
                 android:layout_marginEnd="0dp"/>
 
@@ -219,7 +396,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/arrow_button_right"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/categoryName"
+                app:layout_constraintTop_toBottomOf="@id/flashsale_constraintlayout"
                 android:paddingTop="5dp"
                 android:layout_marginEnd="5dp"/>
 

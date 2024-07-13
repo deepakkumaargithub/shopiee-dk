@@ -8,17 +8,7 @@
     android:padding="3dp"
     tools:context=".flashSale_MainActivity">
 
-    <TextView
-        android:id="@+id/text_flash"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Flash Sale"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
