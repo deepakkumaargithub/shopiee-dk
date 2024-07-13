@@ -9,21 +9,24 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/product_details_tab_layout"
         android:layout_width="0dp"
-        android:layout_marginTop="4dp"
         android:layout_height="wrap_content"
-        app:tabSelectedTextColor="@color/primary_color"
-        app:tabIndicatorColor="@color/primary_color"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorColor="@color/primary_color"
+        app:tabSelectedTextColor="@color/primary_color">
+
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description" />
+
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Specification" />
+
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

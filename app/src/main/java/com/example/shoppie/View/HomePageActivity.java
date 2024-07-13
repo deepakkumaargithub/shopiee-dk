@@ -3,6 +3,8 @@ package com.example.shoppie.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,10 +15,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.shoppie.AllCategoryActivity;
+import com.example.shoppie.LoginActivity;
 import com.example.shoppie.ModelClass.Banner;
 import com.example.shoppie.ModelClass.Category;
 import com.example.shoppie.R;
 import com.bumptech.glide.Glide;
+import com.example.shoppie.SplashScreen;
 import com.example.shoppie.ViewModel.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -39,6 +44,11 @@ import java.util.ArrayList;
  * navigation through a BottomNavigationView.
  */
 public class HomePageActivity extends AppCompatActivity {
+
+    // for category
+
+    ImageView sellAllCategoryArrowImage;
+    TextView seeAllText;
 
     // Constant for logging
     private static final String TAG = "HomePageActivity";
@@ -75,6 +85,32 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         Log.d(TAG, "onCreate: Home page started");
+
+        // creating intent through image
+
+        sellAllCategoryArrowImage = findViewById(R.id.see_all_categories);
+
+        sellAllCategoryArrowImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent go_to_allCategory = new Intent(HomePageActivity.this, AllCategoryActivity.class);
+                startActivity(go_to_allCategory);
+                finish();
+            }
+        });
+
+        // creating intent through txt
+
+        seeAllText = findViewById(R.id.see_all_1);
+
+        seeAllText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent go_to_allCategory = new Intent(HomePageActivity.this, AllCategoryActivity.class);
+                startActivity(go_to_allCategory);
+                finish();
+            }
+        });
 
         // Initialize UI elements
         userName = findViewById(R.id.username);

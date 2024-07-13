@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    id("com.google.gms.google-services")
+    id("com.google.gms.google-services")  // Google Services plugin for Firebase
 }
 
 android {
@@ -33,39 +33,36 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        viewBinding = true  // Enables view binding
     }
 }
 
 dependencies {
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    implementation(libs.activity)
-    implementation(libs.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    // AndroidX Libraries
+    implementation(libs.appcompat)  // AppCompat library
+    implementation(libs.material)  // Material Design library
+    implementation(libs.activity)  // Activity library
+    implementation(libs.constraintlayout)  // ConstraintLayout library
+    implementation(libs.recyclerview)  // RecyclerView library
+    implementation(libs.viewpager)  // ViewPager library
 
     // Firebase
-    implementation(libs.firebase.database)
+    implementation(libs.firebase.database)  // Firebase Realtime Database
 
-    // Play Services Location
-    implementation(libs.play.services.location)
+    // Google Play Services
+    implementation(libs.play.services.location)  // Play Services Location
 
-    // RecyclerView
-    implementation(libs.recyclerview)
+    // Image loading libraries
+    implementation(libs.picasso)  // Picasso for image loading
+    implementation(libs.glide)  // Glide for image loading
+    annotationProcessor(libs.compiler)  // Annotation processor for Glide
 
-    // Picasso
-    implementation(libs.picasso)
+    // Testing Libraries
+    testImplementation(libs.junit)  // JUnit for unit tests
+    androidTestImplementation(libs.ext.junit)  // AndroidX Test - JUnit
+    androidTestImplementation(libs.espresso.core)  // Espresso for UI tests
 
-    // ViewPager
-    implementation(libs.viewpager)
-
-    // Others
-    implementation(libs.glide)
-    annotationProcessor(libs.compiler)
-
-    // New items
-    implementation(libs.appcompatV131)
-    implementation(libs.materialV140)
+    // Remove older versions if not needed
+    // implementation(libs.appcompatV131)
+    // implementation(libs.materialV140)
 }
