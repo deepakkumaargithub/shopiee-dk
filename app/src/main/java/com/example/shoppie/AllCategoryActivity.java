@@ -1,9 +1,16 @@
 package com.example.shoppie;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.shoppie.View.HomePageActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +20,23 @@ public class AllCategoryActivity extends AppCompatActivity {
     private ProductAdapter productAdapter;
     private List<Product> productList;
 
+    ImageView backArrow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_category);
+
+        backArrow = findViewById(R.id.back_arrow);
+
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent go_to_HomePage = new Intent( AllCategoryActivity.this,HomePageActivity.class);
+                startActivity(go_to_HomePage);
+                finish();
+            }
+        });
 
         recyclerView = findViewById(R.id.recycler_view_allCategory);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
@@ -33,6 +53,19 @@ public class AllCategoryActivity extends AppCompatActivity {
 
         productAdapter = new ProductAdapter(this, productList);
         recyclerView.setAdapter(productAdapter);
+    }
+
+    // Override the onBackPressed method to navigate to the home screen
+    @Override
+    public void onBackPressed() {
+        // Intent to start the home screen activity
+        super.onBackPressed();
+        Intent intent = new Intent(AllCategoryActivity.this, HomePageActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+
+        // Finish the current activity to remove it from the back stack
+        finish();
     }
 }
 
