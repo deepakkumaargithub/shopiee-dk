@@ -1,5 +1,6 @@
 package com.example.shoppie;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+
 import java.util.List;
-
-import com.bumptech.glide.Glide;
-
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
@@ -30,17 +29,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_product, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.product_item, parent, false);
         return new ProductViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
         holder.productTitle.setText(product.getTitle());
-        holder.productPrice.setText("₹" + product.getPrice());
+        holder.productPrice.setText(product.getPrice());
+//        holder.totalProduct.setText("Showing "+productList.size()+" products available now!");
         // Load image using Glide
-        Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
+        Glide.with(context)
+                .load(product.getImageUrl())
+                .placeholder(R.drawable.loc_logo) // Add a placeholder image
+                .error(R.drawable.loc_access_logo) // Add an error image
+                .into(holder.productImage);
+
     }
 
     @Override
@@ -52,6 +58,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         ImageView productImage;
         TextView productTitle;
         TextView productPrice;
+        TextView totalProduct;
         Button addToCartButton;
 
         public ProductViewHolder(@NonNull View itemView) {
@@ -59,6 +66,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             productImage = itemView.findViewById(R.id.product_image);
             productTitle = itemView.findViewById(R.id.product_title);
             productPrice = itemView.findViewById(R.id.product_price);
+            totalProduct = itemView.findViewById(R.id.result_text);
             addToCartButton = itemView.findViewById(R.id.add_to_cart_button);
         }
     }
