@@ -67,7 +67,6 @@
         <activity
             android:name=".View.HomePageActivity"
 
-
             android:exported="false" />
 
 
