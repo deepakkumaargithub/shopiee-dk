@@ -33,13 +33,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return new ProductViewHolder(view);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
         holder.productTitle.setText(product.getTitle());
         holder.productPrice.setText(product.getPrice());
-//        holder.totalProduct.setText("Showing "+productList.size()+" products available now!");
         // Load image using Glide
         Glide.with(context)
                 .load(product.getImageUrl())
@@ -58,7 +56,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         ImageView productImage;
         TextView productTitle;
         TextView productPrice;
-        TextView totalProduct;
         Button addToCartButton;
 
         public ProductViewHolder(@NonNull View itemView) {
@@ -66,7 +63,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             productImage = itemView.findViewById(R.id.product_image);
             productTitle = itemView.findViewById(R.id.product_title);
             productPrice = itemView.findViewById(R.id.product_price);
-            totalProduct = itemView.findViewById(R.id.result_text);
             addToCartButton = itemView.findViewById(R.id.add_to_cart_button);
         }
     }
