@@ -20,7 +20,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/back_arrow_image" /> <!-- Set your back arrow drawable here -->
+            android:src="@drawable/back_arrow_image" />
 
         <!-- Search Bar -->
         <EditText
@@ -295,7 +295,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/all_category"
         android:layout_margin="5dp"
-
         android:text="Showing 75 results for 'electronics'" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -306,7 +305,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="-23dp"
-        android:clipToPadding="false"
+        android:clipToPadding="true"
         android:padding="16dp" />
 
 </RelativeLayout>
