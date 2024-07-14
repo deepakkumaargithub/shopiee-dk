@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,7 +25,7 @@
         <!-- Search Bar -->
         <EditText
             android:id="@+id/search_bar_allCategory"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_corner"
@@ -37,20 +38,258 @@
             android:paddingEnd="8dp"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/result_text"
-        android:layout_width="wrap_content"
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/all_category"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/back_and_searchBarLL"
-        android:padding="8dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#f2f2f2"
+        android:padding="5dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/category_image1"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:strokeWidth="5dp"
+            android:padding="5dp"
+            app:strokeColor="@color/white"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@+id/category_image2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/category_title1"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/category_image1" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/category_image2"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            android:scaleType="fitXY"
+            app:strokeWidth="5dp"
+            app:strokeColor="@color/white"
+            android:padding="5dp"
+            app:layout_constraintStart_toEndOf="@+id/category_image1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/category_title2"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/category_title1"
+            app:layout_constraintTop_toBottomOf="@+id/category_image2" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/category_image3"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="5dp"
+
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            android:scaleType="fitXY"
+            app:strokeWidth="5dp"
+            android:padding="5dp"
+            app:strokeColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/category_image2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/category_title3"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/category_title2"
+            app:layout_constraintTop_toBottomOf="@id/category_image3" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/category_image4"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            android:scaleType="fitXY"
+            app:strokeWidth="5dp"
+            android:padding="5dp"
+            app:strokeColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/category_image3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/category_title4"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/category_title3"
+            app:layout_constraintTop_toBottomOf="@id/category_image4" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/category_image5"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+
+            android:layout_marginTop="5dp"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            android:scaleType="fitXY"
+            app:strokeWidth="5dp"
+            app:strokeColor="@color/white"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/category_title1" />
+
+        <TextView
+            android:id="@+id/category_title5"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+
+
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/category_image5" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/category_image6"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            android:scaleType="fitXY"
+            app:strokeWidth="5dp"
+            app:strokeColor="@color/white"
+            android:padding="5dp"
+            app:layout_constraintStart_toEndOf="@+id/category_image5"
+            app:layout_constraintTop_toBottomOf="@+id/category_title2" />
+
+        <TextView
+            android:id="@+id/category_title6"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+
+
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/category_title5"
+            app:layout_constraintTop_toBottomOf="@+id/category_image6" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/category_image7"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            android:scaleType="fitXY"
+            app:strokeWidth="5dp"
+            app:strokeColor="@color/white"
+            android:padding="5dp"
+            app:layout_constraintStart_toEndOf="@+id/category_image6"
+            app:layout_constraintTop_toBottomOf="@+id/category_title3" />
+
+        <TextView
+            android:id="@+id/category_title7"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/category_title6"
+            app:layout_constraintTop_toBottomOf="@+id/category_image7" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/category_image8"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            android:scaleType="fitXY"
+            app:strokeWidth="5dp"
+            app:strokeColor="@color/white"
+            android:padding="5dp"
+            app:layout_constraintStart_toEndOf="@+id/category_image7"
+            app:layout_constraintTop_toBottomOf="@+id/category_title4" />
+
+        <TextView
+            android:id="@+id/category_title8"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:padding="2dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/category_title7"
+            app:layout_constraintTop_toBottomOf="@+id/category_image8" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/all_category"
+        android:layout_margin="5dp"
+
         android:text="Showing 75 results for 'electronics'" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_allCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/result_text"
-        android:padding="16dp"
-        android:clipToPadding="false"/>
+        android:layout_below="@id/all_category"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="-23dp"
+        android:clipToPadding="false"
+        android:padding="16dp" />
 
 </RelativeLayout>

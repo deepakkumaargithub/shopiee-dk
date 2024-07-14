@@ -62,7 +62,17 @@ dependencies {
     androidTestImplementation(libs.ext.junit)  // AndroidX Test - JUnit
     androidTestImplementation(libs.espresso.core)  // Espresso for UI tests
 
-    // Remove older versions if not needed
-    // implementation(libs.appcompatV131)
-    // implementation(libs.materialV140)
+
+    // ViewPager
+    implementation(libs.viewpager)
+
+     
+
+    // New items
+    implementation(libs.appcompatV131)
+    implementation(libs.materialV140)
+
+
+
 }
+
