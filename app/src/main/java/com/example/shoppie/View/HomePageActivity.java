@@ -4,24 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
 import com.example.shoppie.AllCategoryActivity;
-import com.example.shoppie.LoginActivity;
+import com.example.shoppie.ImageAdapterCategory;
 import com.example.shoppie.ModelClass.Banner;
 import com.example.shoppie.ModelClass.Category;
 import com.example.shoppie.R;
-import com.bumptech.glide.Glide;
-import com.example.shoppie.SplashScreen;
 import com.example.shoppie.ViewModel.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -31,10 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
-//added for new items
 import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -74,6 +70,15 @@ public class HomePageActivity extends AppCompatActivity {
      */
     private List<ImageView> flashImageViews;
     private List<TextView> flashDiscountTexts;
+    // gridview for categorygrid on homepage
+    private GridView gridView1, gridView2, gridView3, gridView4;
+    private int[] imageArray = {
+            R.drawable.ac1, R.drawable.ac2, R.drawable.ac3, R.drawable.ac4,
+            R.drawable.fridge1, R.drawable.fridge2, R.drawable.fridge3, R.drawable.fridge4,
+            R.drawable.laptop1, R.drawable.laptop2, R.drawable.laptop3, R.drawable.laptop4,
+            R.drawable.speaker1, R.drawable.speaker2, R.drawable.speaker3, R.drawable.speaker4
+    };
+
 
     /**
      * Called when the activity is first created.
@@ -117,6 +122,22 @@ public class HomePageActivity extends AppCompatActivity {
         profileImage = findViewById(R.id.profileImage);
         notificationIcon = findViewById(R.id.notificationIcon);
         homeImage = findViewById(R.id.home_image);
+        // for gridview category item section
+
+        gridView1 = findViewById(R.id.grid_view1);
+        gridView2 = findViewById(R.id.grid_view2);
+        gridView3 = findViewById(R.id.grid_view3);
+        gridView4 = findViewById(R.id.grid_view4);
+
+        ImageAdapterCategory adapter1 = new ImageAdapterCategory(this, new int[]{R.drawable.ac1, R.drawable.ac2, R.drawable.ac3, R.drawable.ac4});
+        ImageAdapterCategory adapter2 = new ImageAdapterCategory(this, new int[]{R.drawable.fridge1, R.drawable.fridge2, R.drawable.fridge3, R.drawable.fridge4});
+        ImageAdapterCategory adapter3 = new ImageAdapterCategory(this, new int[]{R.drawable.laptop1, R.drawable.laptop2, R.drawable.laptop3, R.drawable.laptop4});
+        ImageAdapterCategory adapter4 = new ImageAdapterCategory(this, new int[]{R.drawable.speaker1, R.drawable.speaker2, R.drawable.speaker3, R.drawable.speaker4});
+
+        gridView1.setAdapter(adapter1);
+        gridView2.setAdapter(adapter2);
+        gridView3.setAdapter(adapter3);
+        gridView4.setAdapter(adapter4);
         //for the new item
         imageViews = new ArrayList<>();
         descriptionTexts = new ArrayList<>();
