@@ -23,11 +23,12 @@ import java.util.List;
 
 public class AllCategoryActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private ProductAdapter productAdapter;
-    private List<Product> productList;
+    private RecyclerView recyclerView; // RecyclerView to display the products
+    private ProductAdapter productAdapter; // Adapter for the RecyclerView
+    private List<Product> productList; // List to hold the products
+    private TextView resultText; // TextView to show the total product count
 
-    ImageView backArrow;
+    ImageView backArrow; // ImageView for the back arrow
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class AllCategoryActivity extends AppCompatActivity {
 
         backArrow = findViewById(R.id.back_arrow);
 
+        // Set click listener on the back arrow to navigate to the home page
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,31 +51,53 @@ public class AllCategoryActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recycler_view_allCategory);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // Set layout manager for the RecyclerView
 
         productList = new ArrayList<>();
         productAdapter = new ProductAdapter(this, productList);
         recyclerView.setAdapter(productAdapter);
 
-        // Fetch data from Firebase
-        database.getReference("categories/electronics/computers/products").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                productList.clear();
-                for (DataSnapshot productSnapshot : snapshot.getChildren()) {
-                    String name = productSnapshot.child("name").getValue(String.class);
-                    String price = productSnapshot.child("price").getValue(String.class);
-                    String imageUrl = productSnapshot.child("imagesUrls").child("image1").getValue(String.class);
-                    productList.add(new Product(name, price, imageUrl));
-                }
-                productAdapter.notifyDataSetChanged();
-            }
+        resultText = findViewById(R.id.result_text); // Initialize the resultText TextView
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(AllCategoryActivity.this, "Failed to load data.", Toast.LENGTH_SHORT).show();
-            }
-        });
+        // Fetch data from Firebase
+        database.getReference("categories")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        productList.clear();
+                        int totalProducts = 0; // Counter for total products
+
+                        // Iterate through all categories
+                        for (DataSnapshot categorySnapshot : snapshot.getChildren()) {
+                            // Iterate through all subcategories
+                            for (DataSnapshot subCategorySnapshot : categorySnapshot.getChildren()) {
+                                // Iterate through all products in each subcategory
+                                for (DataSnapshot productSnapshot : subCategorySnapshot.child("products").getChildren()) {
+                                    // Fetch product details
+                                    String name = productSnapshot.child("name").getValue(String.class);
+                                    String price = productSnapshot.child("price").getValue(String.class);
+                                    String imageUrl = productSnapshot.child("imagesUrls").child("image1").getValue(String.class);
+
+                                    // Add product to the list
+                                    productList.add(new Product(name, price, imageUrl));
+                                    totalProducts++; // Increment the product counter
+                                }
+                            }
+                        }
+
+                        // Update the resultText TextView with the total product count
+                        resultText.setText("Showing " + totalProducts + " results for 'all categories'");
+
+                        // Notify adapter about data changes
+                        productAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Show error message if data loading fails
+                        Toast.makeText(AllCategoryActivity.this, "Failed to load data.", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     // Override the onBackPressed method to navigate to the home screen
