@@ -31,6 +31,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_details);
 
 
+
         productImagesViewPager = findViewById(R.id.product_images_viewPager);
         viewpagerIndicator = findViewById(R.id.view_pager_indicator);
 
@@ -62,6 +63,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
+
             }
 
             @Override
@@ -69,5 +71,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
             }
         });
+
     }
 }

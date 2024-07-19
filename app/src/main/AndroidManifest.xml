@@ -46,11 +46,15 @@
             android:exported="false" />
 
 
+
         <activity
             android:name=".CategoryActivity"
+
             android:exported="false">
 
+
         </activity>
+
 
         <activity
             android:name=".View.HomePageActivity"
