@@ -25,6 +25,7 @@ import java.util.List;
 import com.bumptech.glide.Glide;
 
 
+
 public class AllCategoryActivity extends AppCompatActivity {
 
 
@@ -41,10 +42,15 @@ public class AllCategoryActivity extends AppCompatActivity {
     private List<TextView> titleTexts;
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_category);
+
+
 
 
         // Initialize Firebase
