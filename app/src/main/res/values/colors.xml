@@ -6,6 +6,7 @@
     <color name="dark_grey">#BFBFBF</color>
     <color name="light_grey">#F8F8F8</color>
     <color name="light_red">#D97474</color>
+    <color name="shadow_blue">#85A8FB</color>
 
     <color name="button_pressed">#FF3700B3</color>
 
