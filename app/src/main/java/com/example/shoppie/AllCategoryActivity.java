@@ -93,6 +93,7 @@ public class AllCategoryActivity extends AppCompatActivity {
 
         fetchCategoryData();
 
+        resultText = findViewById(R.id.result_text);
 
         recyclerView = findViewById(R.id.recycler_view_allCategory);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // Set layout manager for the RecyclerView
@@ -106,7 +107,7 @@ public class AllCategoryActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         productList.clear();
-                      //  int totalProducts = 0; // Counter for total products
+                        int totalProducts = 0; // Counter for total products
 
                         // Iterate through all categories
                         for (DataSnapshot categorySnapshot : snapshot.getChildren()) {
@@ -118,17 +119,18 @@ public class AllCategoryActivity extends AppCompatActivity {
                                     String name = productSnapshot.child("name").getValue(String.class);
                                     String price = productSnapshot.child("price").getValue(String.class);
                                     String imageUrl = productSnapshot.child("imagesUrls").child("image1").getValue(String.class);
-
+                                    String location = productSnapshot.child("location").getValue(String.class);///added
+                                    //add remaining details.......
                                     // Add product to the list
                                     productList.add(new Product(name, price, imageUrl));
-                                    //totalProducts++; // Increment the product counter
+                                    totalProducts++; // Increment the product counter
                                 }
                             }
                         }
 
                         // Update the resultText TextView with the total product count
                         //Log.d(TAG, "onCreate: category all pages started ");
-                        //resultText.setText("Showing " + totalProducts + " results for 'all categories'");
+                        resultText.setText("Showing " + totalProducts + " results for 'all categories'");
 
                         // Notify adapter about data changes
                         productAdapter.notifyDataSetChanged();
