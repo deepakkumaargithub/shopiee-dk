@@ -2,7 +2,6 @@ package com.example.shoppie;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,40 +17,27 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
-//for fetching category image
-import com.bumptech.glide.Glide;
-
-
 
 public class AllCategoryActivity extends AppCompatActivity {
-
 
     private RecyclerView recyclerView; // RecyclerView to display the products
     private ProductAdapter productAdapter; // Adapter for the RecyclerView
     private List<Product> productList; // List to hold the products
     private TextView resultText; // TextView to show the total product count
+    private ImageView backArrow; // ImageView for the back arrow
 
-    ImageView backArrow; // ImageView for the back arrow
-
-
-    //for Category
+    // For Category
     private List<ImageView> categoryImageView;
     private List<TextView> titleTexts;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_category);
-
-
-
 
         // Initialize Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -62,13 +48,13 @@ public class AllCategoryActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent go_to_HomePage = new Intent(AllCategoryActivity.this, HomePageActivity.class);
-                startActivity(go_to_HomePage);
+                Intent goToHomePage = new Intent(AllCategoryActivity.this, HomePageActivity.class);
+                startActivity(goToHomePage);
                 finish();
             }
         });
 
-        //for category
+        // For category
         categoryImageView = new ArrayList<>();
         titleTexts = new ArrayList<>();
 
@@ -90,9 +76,9 @@ public class AllCategoryActivity extends AppCompatActivity {
         titleTexts.add(findViewById(R.id.category_title7));
         titleTexts.add(findViewById(R.id.category_title8));
 
-
         fetchCategoryData();
 
+        resultText = findViewById(R.id.result_text);
 
         recyclerView = findViewById(R.id.recycler_view_allCategory);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // Set layout manager for the RecyclerView
@@ -100,13 +86,14 @@ public class AllCategoryActivity extends AppCompatActivity {
         productList = new ArrayList<>();
         productAdapter = new ProductAdapter(this, productList);
         recyclerView.setAdapter(productAdapter);
+
         // Fetch data from Firebase
         database.getReference("categories")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         productList.clear();
-                      //  int totalProducts = 0; // Counter for total products
+                        int totalProducts = 0; // Counter for total products
 
                         // Iterate through all categories
                         for (DataSnapshot categorySnapshot : snapshot.getChildren()) {
@@ -117,18 +104,35 @@ public class AllCategoryActivity extends AppCompatActivity {
                                     // Fetch product details
                                     String name = productSnapshot.child("name").getValue(String.class);
                                     String price = productSnapshot.child("price").getValue(String.class);
-                                    String imageUrl = productSnapshot.child("imagesUrls").child("image1").getValue(String.class);
+                                    String description = productSnapshot.child("description").getValue(String.class);
+                                    String location = productSnapshot.child("location").getValue(String.class);
+                                    String sellerInfo = productSnapshot.child("sellerInfo").getValue(String.class);
+                                    //float rating = productSnapshot.child("rating").getValue(float.class);
+
+                                    // Fetch images
+                                    List<String> imagesUrls = new ArrayList<>();
+                                    for (DataSnapshot imageSnapshot : productSnapshot.child("imagesUrls").getChildren()) {
+                                        imagesUrls.add(imageSnapshot.getValue(String.class));
+                                    }
+
+                                    // Fetch specifications
+                                    List<ProductSpecificationModel> specifications = new ArrayList<>();
+                                    for (DataSnapshot specSnapshot : productSnapshot.child("specifications").getChildren()) {
+                                        String specName = specSnapshot.child("featureName").getValue(String.class);
+                                        String specValue = specSnapshot.child("featureValue").getValue(String.class);
+                                        specifications.add(new ProductSpecificationModel(specName, specValue));
+                                    }
+
 
                                     // Add product to the list
-                                    productList.add(new Product(name, price, imageUrl));
-                                    //totalProducts++; // Increment the product counter
+                                    productList.add(new Product(name, price, description, imagesUrls, location, sellerInfo, specifications));
+                                    totalProducts++; // Increment the product counter
                                 }
                             }
                         }
 
                         // Update the resultText TextView with the total product count
-                        //Log.d(TAG, "onCreate: category all pages started ");
-                        //resultText.setText("Showing " + totalProducts + " results for 'all categories'");
+                        resultText.setText("Showing " + totalProducts + " results for 'all categories'");
 
                         // Notify adapter about data changes
                         productAdapter.notifyDataSetChanged();
@@ -140,12 +144,9 @@ public class AllCategoryActivity extends AppCompatActivity {
                         Toast.makeText(AllCategoryActivity.this, "Failed to load data.", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
-
-
     }
-    //for category
+
+    // For category
     private void fetchCategoryData() {
         FirebaseDatabase.getInstance("https://shoppie-a1b51-default-rtdb.firebaseio.com/")
                 .getReference("subcategories")
@@ -170,9 +171,6 @@ public class AllCategoryActivity extends AppCompatActivity {
                     }
                 });
     }
-
-
-
 
     // Override the onBackPressed method to navigate to the home screen
     @Override

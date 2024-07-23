@@ -1,5 +1,7 @@
 package com.example.shoppie;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -7,48 +9,62 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class ProductImageAdapter extends PagerAdapter {
 
-    private List<Integer> productImages;
+    private List<String> imageUrls; // List of image URLs
+    private Context context; // Context for loading images
 
-    public ProductImageAdapter(List<Integer> productImages) {
-        this.productImages = productImages;
+    // Constructor to initialize image URLs and context
+    public ProductImageAdapter(Context context, List<String> imageUrls) {
+        this.context = context;
+        this.imageUrls = imageUrls;
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        ImageView productImage = new ImageView(container.getContext()); // Create ImageView
-        productImage.setImageResource(productImages.get(position)); // Set image resource
+        // Create a new ImageView
+        ImageView imageView = new ImageView(context);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER); // Optional: Scale type for images
+
+        // Use Glide to load the image from the URL
+        Glide.with(context)
+                .load(imageUrls.get(position)) // Load image from URL
+                .error(R.drawable.loc_access_logo) // Optional: error image if loading fails
+                .into(imageView);
 
         // Add content description for accessibility
-        productImage.setContentDescription("Product image " + (position + 1));
+        imageView.setContentDescription("Product image " + (position + 1));
 
         // Set layout parameters to match parent (optional, if not set through XML)
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
         );
-        productImage.setLayoutParams(layoutParams);
+        imageView.setLayoutParams(layoutParams);
 
-        container.addView(productImage); // Add ImageView to container
-        return productImage;
+        // Add ImageView to the container
+        container.addView(imageView);
+        return imageView;
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((ImageView) object); // Remove ImageView from container
+        // Remove ImageView from container
+        container.removeView((View) object);
     }
 
     @Override
     public int getCount() {
-        return productImages.size(); // Return size of the images list
+        return imageUrls.size(); // Return the size of the image URLs list
     }
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == object; // Return if view equals object
+        return view.equals(object); // Return if view equals object
     }
 }

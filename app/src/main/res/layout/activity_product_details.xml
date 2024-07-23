@@ -20,10 +20,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/product_images_layout"/>
-            <include layout="@layout/product_description_layout"/>
-            <include layout="@layout/seller_info_layout"/>
-            <include layout="@layout/rating_layout"/>
+            <include android:id="@+id/product_details_image_layout"
+                layout="@layout/product_images_layout"/>
+            <include android:id="@+id/product_details_description_layout"
+                layout="@layout/product_description_layout"/>
+            <include  android:id="@+id/product_details_seller_info_layout"
+                layout="@layout/seller_info_layout"/>
+            <include android:id="@+id/product_details_rating_layout"
+                layout="@layout/rating_layout"/>
 
 
         </LinearLayout>
