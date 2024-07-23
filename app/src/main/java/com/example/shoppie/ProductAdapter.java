@@ -49,9 +49,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 context.startActivity(intent);
             }
         });
-        // Load image using Glide
+        // Load the first image using Glide
         Glide.with(context)
-                .load(product.getImageUrl())
+                .load(product.getImagesUrls().get(0))
                 .placeholder(R.drawable.loc_logo) // Add a placeholder image
                 .error(R.drawable.loc_access_logo) // Add an error image
                 .into(holder.productImage);
