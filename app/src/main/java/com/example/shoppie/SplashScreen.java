@@ -1,6 +1,7 @@
 package com.example.shoppie;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +9,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.shoppie.View.HomePageActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -18,6 +21,38 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
+
+
+        //checking the login state.
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+
+        if (isLoggedIn) {
+            // User is logged in, direct them to the home screen
+            Intent intent = new Intent(this, HomePageActivity.class);
+            startActivity(intent);
+            finish(); // Close the current activity
+        }
+        else {
+            // User is not logged in, direct them to the login screen
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish(); // Close the current activity
+        }
+
+        ///////code for logout used when needed. or logout function made ////
+//
+//        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putBoolean("isLoggedIn", false);
+//        editor.apply();
+//
+//// Redirect to login screen
+//        Intent intent = new Intent(this, LoginActivity.class);
+//        startActivity(intent);
+//        finish();
+
 
         button = findViewById(R.id.get_started_button);
         button.setOnClickListener(new View.OnClickListener() {

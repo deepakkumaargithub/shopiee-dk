@@ -11,17 +11,25 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import com.example.shoppie.View.HomePageActivity;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import android.location.Location;
 
 public class UserLocationPermissionActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 123;
+    private FusedLocationProviderClient fusedLocationClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_location_permission);
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         // Simulating successful sign-in
         onSignInSuccess();
@@ -45,8 +53,8 @@ public class UserLocationPermissionActivity extends AppCompatActivity {
                             new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
                             MY_PERMISSIONS_REQUEST_LOCATION);
                 } else {
-                    // Permissions are already granted, proceed to the home screen
-                    moveToHomeScreen();
+                    // Permissions are already granted, get the location
+                    getUserLocation();
                 }
                 dialog.dismiss();
             }
@@ -68,6 +76,34 @@ public class UserLocationPermissionActivity extends AppCompatActivity {
         showLocationPermissionDialog();
     }
 
+    private void getUserLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        if (location != null) {
+                            // Save location to Firebase
+                            saveLocationToFirebase(location);
+                            // Move to the home screen
+                            moveToHomeScreen();
+                        } else {
+                            Toast.makeText(UserLocationPermissionActivity.this, "Unable to get location", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void saveLocationToFirebase(Location location) {
+       // String userId = "userid"; //
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child("phoneNo");
+        databaseReference.child("location").setValue(location);
+    }
+
     private void moveToHomeScreen() {
         Intent intent = new Intent(UserLocationPermissionActivity.this, HomePageActivity.class);
         startActivity(intent);
@@ -80,8 +116,8 @@ public class UserLocationPermissionActivity extends AppCompatActivity {
 
         if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission was granted, proceed to the home screen
-                moveToHomeScreen();
+                // Permission was granted, get the location
+                getUserLocation();
             } else {
                 // Permission denied, show a toast or handle accordingly
                 Toast.makeText(this, "Location permission is required for this app to function properly.", Toast.LENGTH_LONG).show();
