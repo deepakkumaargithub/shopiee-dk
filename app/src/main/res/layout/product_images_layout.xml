@@ -120,7 +120,6 @@
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
             android:background="@drawable/plus_btn"
-
             android:padding="10dp"
             android:scaleType="centerInside" />
 
