@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="8dp"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -29,9 +30,8 @@
             android:id="@+id/seller_info_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="16dp"
-
+            android:padding="16dp"
+            android:background="@color/light_grey"
             android:fontFamily="@font/raleway_semibold"
             android:text="Whirlpool of India Ltd. Plot No. A-4, MIDC Ranjangaon,Taluka Shirur, Dist: Pune, Maharashtra 412220, India, Email - helpdeskindia@whirlpool.com ; Toll Free - 1800 208 1800" />
     </LinearLayout>
