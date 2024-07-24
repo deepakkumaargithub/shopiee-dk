@@ -2,11 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="ExtraText">
-
     <!-- Permission for user current location -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- Permission for Glide Image Loading -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Permission for Glide Image Loading -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -19,12 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shoppie"
         tools:targetApi="31">
-
-
-
-        <activity android:name=".AllCategoryActivity"
+        <activity
+            android:name=".ProductDescriptionSectionActivity"
             android:exported="true">
 
+
+        </activity>
+
+
+
+        <activity
+            android:name=".AllCategoryActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,45 +45,40 @@
             android:exported="false" />
         <activity
             android:name=".ProductDetailsActivity"
-
             android:exported="true">
 
-
         </activity>
-
-
         <activity
             android:name=".UserLocationPermissionActivity"
             android:exported="false" />
-
-
-
         <activity
             android:name=".CategoryActivity"
-
             android:exported="false">
 
-
         </activity>
-
-
         <activity
             android:name=".View.HomePageActivity"
             android:exported="true">
 
 
         </activity>
-
-        <activity android:name=".View.UserProfileActivity" android:exported="false" />
-        <activity android:name=".flashSale_MainActivity" android:exported="false" />
-
-        <activity android:name=".SplashScreen" android:exported="true" >
-
-
+        <activity
+            android:name=".View.UserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".flashSale_MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true">
 
         </activity>
-        <activity android:name=".CreateAccountActivity" android:exported="false" />
-        <activity android:name=".LoginActivity" android:exported="false" />
-
+        <activity
+            android:name=".CreateAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
     </application>
+
 </manifest>

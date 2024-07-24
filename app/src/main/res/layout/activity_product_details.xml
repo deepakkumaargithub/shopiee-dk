@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ProductDetailsActivity">
 
     <ScrollView
@@ -22,10 +23,20 @@
 
             <include android:id="@+id/product_details_image_layout"
                 layout="@layout/product_images_layout"/>
-            <include android:id="@+id/product_details_description_layout"
-                layout="@layout/product_description_layout"/>
+
+            <include android:id="@+id/description_section"
+                layout="@layout/activity_product_description_section"/>
+
+            <include android:id="@+id/specification_section"
+                layout="@layout/activity_product_specification_section"/>
+
+            <include android:id="@+id/other_details_section"
+                layout="@layout/activity_other_details_section"/>
+
+
             <include  android:id="@+id/product_details_seller_info_layout"
                 layout="@layout/seller_info_layout"/>
+
             <include android:id="@+id/product_details_rating_layout"
                 layout="@layout/rating_layout"/>
 

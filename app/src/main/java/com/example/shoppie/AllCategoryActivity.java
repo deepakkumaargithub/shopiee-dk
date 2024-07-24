@@ -107,7 +107,8 @@ public class AllCategoryActivity extends AppCompatActivity {
                                     String description = productSnapshot.child("description").getValue(String.class);
                                     String location = productSnapshot.child("location").getValue(String.class);
                                     String sellerInfo = productSnapshot.child("sellerInfo").getValue(String.class);
-                                    //float rating = productSnapshot.child("rating").getValue(float.class);
+                                    String specification = productSnapshot.child("specification").getValue(String.class);
+                                    String otherDetails = productSnapshot.child("otherDetails").getValue(String.class);
 
                                     // Fetch images
                                     List<String> imagesUrls = new ArrayList<>();
@@ -115,17 +116,10 @@ public class AllCategoryActivity extends AppCompatActivity {
                                         imagesUrls.add(imageSnapshot.getValue(String.class));
                                     }
 
-                                    // Fetch specifications
-                                    List<ProductSpecificationModel> specifications = new ArrayList<>();
-                                    for (DataSnapshot specSnapshot : productSnapshot.child("specifications").getChildren()) {
-                                        String specName = specSnapshot.child("featureName").getValue(String.class);
-                                        String specValue = specSnapshot.child("featureValue").getValue(String.class);
-                                        specifications.add(new ProductSpecificationModel(specName, specValue));
-                                    }
 
 
                                     // Add product to the list
-                                    productList.add(new Product(name, price, description, imagesUrls, location, sellerInfo, specifications));
+                                    productList.add(new Product(name, price, description, imagesUrls, location, sellerInfo, specification,otherDetails));
                                     totalProducts++; // Increment the product counter
                                 }
                             }

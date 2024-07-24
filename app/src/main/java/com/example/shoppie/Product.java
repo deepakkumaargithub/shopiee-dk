@@ -14,14 +14,15 @@ public class Product implements Parcelable {
     private List<String> imagesUrls;
     private String location;
     private String sellerInfo;
-    private List<ProductSpecificationModel> specification;
+    private String specification;
+    private String otherDetails;
     //private float rating;
 
     // Default constructor required for calls to DataSnapshot.getValue(Product.class)
     public Product() {
     }
 
-    public Product(String title, String price, String description, List<String> imagesUrls, String location, String sellerInfo, List<ProductSpecificationModel> specification) {
+    public Product(String title, String price, String description, List<String> imagesUrls, String location, String sellerInfo, String specification, String otherDetails) {
         this.title = title;
         this.price = price;
         this.description = description;
@@ -29,6 +30,8 @@ public class Product implements Parcelable {
         this.location = location;
         this.sellerInfo = sellerInfo;
         this.specification = specification;
+        this.otherDetails = otherDetails;
+
       //  this.rating = rating;
     }
 
@@ -40,7 +43,9 @@ public class Product implements Parcelable {
         imagesUrls = in.createStringArrayList();
         location = in.readString();
         sellerInfo = in.readString();
-        specification = in.createTypedArrayList(ProductSpecificationModel.CREATOR);
+        specification = in.readString();
+        otherDetails = in.readString();
+
         //rating = in.readFloat();
     }
 
@@ -53,6 +58,9 @@ public class Product implements Parcelable {
     }
 
     public String getDescription() {
+        if(description == null){
+            return "No information available right now :/";
+        }
         return description;
     }
 
@@ -65,16 +73,27 @@ public class Product implements Parcelable {
     }
 
     public String getSellerInfo() {
+        if(sellerInfo == null){
+            return "No information available right now :/";
+        }
         return sellerInfo;
     }
 
-    public List<ProductSpecificationModel> getSpecification() {
+    public String getSpecification() {
+        if(specification == null){
+            return "No extra information required :)";
+        }
         return specification;
     }
 
-//    public float getRating() {
-//        return rating;
-//    }
+    public String getOtherDetails() {
+        if(otherDetails == null){
+            return "No extra information required :)";
+        }
+        return otherDetails;
+    }
+
+
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
         @Override
@@ -101,7 +120,8 @@ public class Product implements Parcelable {
         parcel.writeStringList(imagesUrls);
         parcel.writeString(location);
         parcel.writeString(sellerInfo);
-        parcel.writeTypedList(specification);
-      //  parcel.writeFloat(rating);
+        parcel.writeString(specification);
+        parcel.writeString(otherDetails);
+
     }
 }
