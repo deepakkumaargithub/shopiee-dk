@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    card_view:cardCornerRadius="8dp"
-    card_view:cardElevation="4dp">
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,10 +14,11 @@
 
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="75dp"
-            android:layout_height="65dp"
+            android:layout_width="65dp"
+            android:layout_height="45dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerInside"
+            android:background="@color/light_grey"
             />
 
     </RelativeLayout>
