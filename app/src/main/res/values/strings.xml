@@ -48,6 +48,8 @@
     <string name="settings">Settings</string>
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer close</string>
+    <string name="your_wishlist">Wishlist</string>
+    <string name="_1">1</string>
 
 
 </resources>

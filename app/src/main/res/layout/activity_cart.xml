@@ -49,7 +49,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -64,8 +65,8 @@
             <ImageView
                 android:layout_width="18dp"
                 android:layout_height="20dp"
-                android:layout_gravity="center_horizontal|end"
-                android:layout_marginStart="20dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="-3dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="1dp"
@@ -73,7 +74,6 @@
                 android:contentDescription="@string/cart"
                 android:elevation="50dp"
                 android:focusable="true"
-
                 android:src="@drawable/edit_button" />
         </LinearLayout>
 
@@ -81,7 +81,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/raleway_semibold"
             android:text="@string/Lorem_ispum"
             android:textAlignment="textStart"
@@ -90,7 +90,17 @@
 
     </LinearLayout>
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_items_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:padding="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shipping_address_section" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
