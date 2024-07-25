@@ -6,21 +6,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.WishlistActivity">
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/wish_list_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="448dp"
         android:fontFamily="@font/raleway_semibold"
-        android:text="Wishlist Page"
+        android:padding="10dp"
+        android:text="Your Wishlist"
         android:textColor="@color/material_dynamic_primary50"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wish_list_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wish_list_title">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
