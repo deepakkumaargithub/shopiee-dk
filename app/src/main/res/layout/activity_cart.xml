@@ -89,6 +89,7 @@
             android:textStyle="normal" />
 
     </LinearLayout>
+    <include layout="@layout/fragment_cart"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_items_recycler"
