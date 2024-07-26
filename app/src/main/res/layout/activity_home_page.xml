@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/dark_grey"
+                android:backgroundTint="@color/light_grey"
                 android:backgroundTintMode="multiply"
                 android:orientation="vertical"
                 android:padding="7dp"

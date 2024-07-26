@@ -13,13 +13,14 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/raleway_semibold"
         android:padding="10dp"
-        android:text="Your Wishlist"
-        android:textColor="@color/material_dynamic_primary50"
+        android:text="Wishlist"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <include layout="@layout/wish_list_empty"/>
 
 
     <androidx.recyclerview.widget.RecyclerView

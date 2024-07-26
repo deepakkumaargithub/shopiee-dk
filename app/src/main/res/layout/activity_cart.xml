@@ -7,20 +7,101 @@
     android:layout_height="match_parent"
     tools:context=".View.CartActivity">
 
+    <!-- Shipping Address Section -->
+
     <TextView
+        android:id="@+id/cartHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="448dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/raleway_semibold"
-        android:text="Cart Page"
-        android:textColor="@color/material_dynamic_primary50"
-        android:textSize="18sp"
-        android:textStyle="normal"
+        android:text="@string/cart"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.002"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075" />
+        app:layout_constraintVertical_bias="0.057" />
+
+    <LinearLayout
+        android:id="@+id/shipping_address_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/light_grey"
+        android:backgroundTintMode="multiply"
+        android:orientation="vertical"
+        android:padding="7dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cartHeading">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:paddingStart="5dp"
+                android:paddingEnd="20dp"
+                android:text="@string/shipping_address"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="20dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="-3dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="1dp"
+                android:clickable="true"
+                android:contentDescription="@string/cart"
+                android:elevation="50dp"
+                android:focusable="true"
+                android:src="@drawable/edit_button" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="@string/Lorem_ispum"
+            android:textAlignment="textStart"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+    <include layout="@layout/fragment_cart"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_items_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:padding="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shipping_address_section" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/personal"/>
+    <group>
+        <item
+            android:id="@+id/profileSettings"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/shipping_address_settings"
+            android:title="@string/shipping_address" />
+    </group>
+
+        <item android:title="@string/shop" />
+    <group>
+        <item
+            android:id="@+id/recently_viewed"
+            android:title="@string/recently_viewed" />
+        <item
+            android:id="@+id/order_history"
+            android:title="@string/order_history" />
+
+    </group>
+
+        <item android:title="@string/account" />
+    <group>
+        <item
+            android:id="@+id/notifications_settings"
+            android:title="@string/notifications_settings" />
+        <item
+            android:id="@+id/about_shopping"
+            android:title="@string/about_shoppie" />
+        <item
+            android:id="@+id/tandc"
+            android:title="@string/terms_and_conditions" />
+    </group>
+    <item android:title="@string/delete_my_account" />
+
+    <item android:title="@string/shoppie" />
+</menu>
